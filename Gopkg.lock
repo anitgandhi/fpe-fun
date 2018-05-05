@@ -5,7 +5,7 @@
   branch = "master"
   name = "github.com/anitgandhi/aesguard"
   packages = ["."]
-  revision = "0217f2a3797bca90cd6bde0f3ca46a4e892dcf40"
+  revision = "d78a67c2d427c80925044d2ac18211015e9b3960"
 
 [[projects]]
   branch = "master"

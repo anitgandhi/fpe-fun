@@ -4,7 +4,7 @@
 
 // +build amd64
 
-package aes
+package aesguard
 
 import (
 	"crypto/cipher"
@@ -57,6 +57,12 @@ func (c *aesCipherGCM) NewGCM(nonceSize int) (cipher.AEAD, error) {
 	g := &gcmAsm{ks: c.enc, nonceSize: nonceSize}
 	gcmAesInit(&g.productTable, g.ks)
 	return g, nil
+}
+
+// Destroy destroys the encryption and decryption key schedule LockedBuffers
+func (c *aesCipherGCM) Destroy() {
+	c.encLockedBuffer.Destroy()
+	c.decLockedBuffer.Destroy()
 }
 
 type gcmAsm struct {

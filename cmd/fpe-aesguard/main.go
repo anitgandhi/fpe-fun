@@ -20,7 +20,9 @@ func main() {
 		return
 	}
 
-	aesBlock, err := aes.NewCipher(key)
+	// Create an AES block from the key, using aesguard to protect the key in memory
+	// This will be used to create the FF1 cipher
+	aesBlock, err := aesguard.NewCipher(key)
 	if err != nil {
 		log.Println(err)
 		return
@@ -32,7 +34,7 @@ func main() {
 		return
 	}
 
-	// Create a new FF1 cipher "object" using the HSM-backed AES block we already made
+	// Create a new FF1 cipher "object" using the aesguard AES block we already made
 	// 10 is the radix/base, and 8 is the max tweak length.
 	FF1, err := ff1.NewCipherWithBlock(aesBlock, 10, 8, tweak)
 	if err != nil {
@@ -54,6 +56,12 @@ func main() {
 	}
 
 	plaintext, err := FF1.Decrypt(ciphertext)
+	if err != nil {
+		log.Println(err)
+		return
+	}
+
+	err = aesguard.DestroyCipher(aesBlock)
 	if err != nil {
 		log.Println(err)
 		return
