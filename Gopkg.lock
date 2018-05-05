@@ -3,12 +3,27 @@
 
 [[projects]]
   branch = "master"
+  name = "github.com/anitgandhi/aesguard"
+  packages = ["."]
+  revision = "0217f2a3797bca90cd6bde0f3ca46a4e892dcf40"
+
+[[projects]]
+  branch = "master"
   name = "github.com/anitgandhi/p11"
   packages = [
     ".",
     "aes"
   ]
   revision = "7d57b76333868367a5e43de9ffcf8a3fcc6970e0"
+
+[[projects]]
+  name = "github.com/awnumar/memguard"
+  packages = [
+    ".",
+    "memcall"
+  ]
+  revision = "f431f51ecd92dc926a5084ac3e9c89080ec7edf4"
+  version = "v0.15.0"
 
 [[projects]]
   branch = "with-block-methods"
@@ -22,9 +37,19 @@
   packages = ["."]
   revision = "287d9350987cc9334667882061e202e96cdfb4d0"
 
+[[projects]]
+  branch = "master"
+  name = "golang.org/x/sys"
+  packages = [
+    "cpu",
+    "unix",
+    "windows"
+  ]
+  revision = "6f686a352de66814cdd080d970febae7767857a3"
+
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  inputs-digest = "911be84f40db72d137566a985b528a30ec1382391131229e86bcec79a8ea5c45"
+  inputs-digest = "af4ec8f01b64a52b8c16c578dea3dc6ffd4d0cbd056f1ce698b6c69350f39bf4"
   solver-name = "gps-cdcl"
   solver-version = 1
