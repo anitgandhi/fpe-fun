@@ -1,4 +1,5 @@
 fpe-p11
 !fpe-p11/
-fpe-aesguard
-!fpe-aesguard/
+fpe-asgard
+!fpe-asgard/
+*.exe
